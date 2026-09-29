@@ -49,7 +49,7 @@ required = ["index.html","people-operations.html","technology.html","about.html"
 for name in required:
     assert (ROOT / name).exists(), f"Missing {name}"
 
-for expected in ("adegheprofessionalservices@gmail.com", "+234 703 035 1005", "+234 905 672 6687"):
+for expected in ("adegheprofessionalservices@gmail.com", "+234 807 752 0638", "+234 905 672 6687"):
     assert expected in (ROOT / "contact.html").read_text(encoding="utf-8"), f"Missing contact detail: {expected}"
 about_text = (ROOT / "about.html").read_text(encoding="utf-8")
 for expected in ("Omokaro Joy Adesuwa", "Founder & Principal", "Fred Osawaru Eghosa", "Technology Lead"):

@@ -32,7 +32,7 @@ python scripts/check_site.py
 - Registered business name: **Adeghe Professional Services**
 - Domain: **adegheprofessionalservices.com**
 - Email: **adegheprofessionalservices@gmail.com**
-- Development WhatsApp: **+234 703 035 1005**
+- Development WhatsApp: **+234 807 752 0638**
 - General phone: **+234 905 672 6687**
 
 The CAC registration number is not displayed by default. It can be added later if the proprietor wants it public.
