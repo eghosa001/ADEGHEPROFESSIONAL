@@ -52,7 +52,12 @@ for name in required:
 for expected in ("adegheprofessionalservices@gmail.com", "+234 703 035 1005", "+234 905 672 6687"):
     assert expected in (ROOT / "contact.html").read_text(encoding="utf-8"), f"Missing contact detail: {expected}"
 about_text = (ROOT / "about.html").read_text(encoding="utf-8")
-for expected in ("Joy Adesuwa Omokaro", "Founder & Principal", "Aighewi Eghosa", "Technology Lead"):
+for expected in ("Omokaro Joy Adesuwa", "Founder & Principal", "Fred Osawaru Eghosa", "Technology Lead"):
     assert expected in about_text, f"Missing leadership detail: {expected}"
+for image in ("assets/omokaro-joy-adesuwa.webp", "assets/fred-osawaru-eghosa.webp"):
+    assert (ROOT / image).exists(), f"Missing leadership image: {image}"
+technology_text = (ROOT / "technology.html").read_text(encoding="utf-8")
+for expected in ("mynigeriaguide.com", "bellissimogeni.com", "UNJAM", "Coming soon"):
+    assert expected in technology_text, f"Missing portfolio detail: {expected}"
 assert "https://adegheprofessionalservices.com/" in (ROOT / "sitemap.xml").read_text(encoding="utf-8")
 print(f"Verified {len(HTML)} HTML pages, metadata, scope, contacts and local links.")
