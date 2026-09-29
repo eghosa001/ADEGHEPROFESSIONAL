@@ -26,6 +26,19 @@ This first version is deliberately lightweight: semantic HTML, responsive CSS an
 python scripts/check_site.py
 ```
 
+## Public identity
+
+- Primary public brand: **Adeghe**
+- Registered business name: **Adeghe Professional Services**
+- Domain: **adegheprofessionalservices.com**
+- Email: **adegheprofessionalservices@gmail.com**
+- Development WhatsApp: **+234 703 035 1005**
+- General phone: **+234 905 672 6687**
+
+The CAC registration number is not displayed by default. It can be added later if the proprietor wants it public.
+
+Leadership/founder profiles should only be added after approved names, titles, short bios and suitable photos are supplied.
+
 ## Before public launch
 
-Add the approved business phone/WhatsApp, email, address (if desired), final domain, analytics and deployment configuration. Do not publish placeholder contact information.
+Connect the domain to hosting, verify HTTPS/canonical URLs, add analytics if desired, and complete live mobile/desktop QA.

@@ -45,8 +45,11 @@ public_text = "\n".join(p.read_text(encoding="utf-8").lower() for p in HTML)
 for excluded in ("loan", "lending", "financial assistance"):
     assert excluded not in public_text, f"Public HTML unexpectedly mentions: {excluded}"
 
-required = ["index.html","people-operations.html","technology.html","about.html","privacy.html","terms.html","styles.css","script.js","favicon.svg","logo-mark.svg"]
+required = ["index.html","people-operations.html","technology.html","about.html","contact.html","privacy.html","terms.html","styles.css","script.js","favicon.svg","logo-mark.svg","robots.txt","sitemap.xml"]
 for name in required:
     assert (ROOT / name).exists(), f"Missing {name}"
 
-print(f"Verified {len(HTML)} HTML pages, metadata, scope and local links.")
+for expected in ("adegheprofessionalservices@gmail.com", "+234 703 035 1005", "+234 905 672 6687"):
+    assert expected in (ROOT / "contact.html").read_text(encoding="utf-8"), f"Missing contact detail: {expected}"
+assert "https://adegheprofessionalservices.com/" in (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+print(f"Verified {len(HTML)} HTML pages, metadata, scope, contacts and local links.")
