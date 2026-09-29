@@ -45,7 +45,7 @@ public_text = "\n".join(p.read_text(encoding="utf-8").lower() for p in HTML)
 for excluded in ("loan", "lending", "financial assistance"):
     assert excluded not in public_text, f"Public HTML unexpectedly mentions: {excluded}"
 
-required = ["index.html","people-operations.html","technology.html","about.html","contact.html","privacy.html","terms.html","styles.css","script.js","favicon.svg","logo-mark.svg","robots.txt","sitemap.xml"]
+required = ["index.html","people-operations.html","technology.html","about.html","contact.html","privacy.html","terms.html","styles.css","script.js","assets/adeghe-logo-horizontal.png","assets/adeghe-icon.png","robots.txt","sitemap.xml"]
 for name in required:
     assert (ROOT / name).exists(), f"Missing {name}"
 
@@ -59,5 +59,10 @@ for image in ("assets/omokaro-joy-adesuwa.webp", "assets/fred-osawaru-eghosa.web
 technology_text = (ROOT / "technology.html").read_text(encoding="utf-8")
 for expected in ("mynigeriaguide.com", "bellissimogeni.com", "UNJAM", "Coming soon"):
     assert expected in technology_text, f"Missing portfolio detail: {expected}"
+for page in HTML:
+    html = page.read_text(encoding="utf-8")
+    if page.name != "404.html":
+        assert "assets/adeghe-logo-horizontal.png" in html, f"{page.name}: approved Adeghe logo missing"
+    assert "assets/adeghe-icon.png" in html, f"{page.name}: approved Adeghe favicon missing"
 assert "https://adegheprofessionalservices.com/" in (ROOT / "sitemap.xml").read_text(encoding="utf-8")
 print(f"Verified {len(HTML)} HTML pages, metadata, scope, contacts and local links.")
