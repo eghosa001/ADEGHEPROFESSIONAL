@@ -1,30 +1,40 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About | Adeghe Professional Services</title>
-  <meta name="description" content="About Adeghe Professional Services and its client management, employee outsourcing and technology services.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script defer src="script.js"></script>
-</head>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About | Adeghe Professional Services</title>
+<meta name="description" content="About Adeghe Professional Services and its client management, employee outsourcing and technology services.">
+<meta name="theme-color" content="#07111f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script></head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-mark">A</span><span><strong>Adeghe</strong><small>Professional Services</small></span></a>
+  <a class="brand" href="index.html" aria-label="Adeghe Professional Services home">
+    <img class="brand-mark" src="logo-mark.svg" alt="" width="40" height="40">
+    <span><strong>Adeghe</strong><small>Professional Services</small></span>
+  </a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-  <nav id="primary-nav" class="primary-nav"><a href="index.html">Home</a><a href="people-operations.html">People & Operations</a><a href="technology.html">Technology</a><a class="active" href="about.html">About</a></nav>
+  <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="people-operations.html">People & Operations</a>
+    <a href="technology.html">Technology</a>
+    <a class="active" href="about.html">About</a>
+  </nav>
 </header>
 <main id="main">
   <section class="page-hero shell">
     <p class="eyebrow">About Adeghe</p>
-    <h1>A professional services business with room to grow.</h1>
-    <p>Adeghe Professional Services is structured around practical business support: client management, employee outsourcing and a growing technology practice for software and digital development.</p>
+    <h1>A professional services business built around practical support.</h1>
+    <p>Adeghe Professional Services brings together client management, employee outsourcing and software development so businesses can improve both their day-to-day operations and the digital tools behind them.</p>
   </section>
 
   <section class="section shell split">
     <div>
       <p class="eyebrow">Business focus</p>
       <h2>Clear services, delivered professionally.</h2>
-      <p>The website intentionally excludes lending and financial-assistance services. The current public positioning focuses only on the services the business wants to present now.</p>
+      <p>Our focus is straightforward: understand what a business needs, organise the work clearly and deliver support that is useful in practice.</p>
     </div>
     <div class="principles">
       <article><span>01</span><div><h3>Clarity</h3><p>Explain the work plainly and keep expectations visible.</p></div></article>
@@ -42,6 +52,11 @@
     </div>
   </section>
 </main>
-<footer class="site-footer shell"><div class="brand footer-brand"><span class="brand-mark">A</span><span><strong>Adeghe</strong><small>Professional Services</small></span></div><p>Client Management · Employee Outsourcing · Software Development</p><p class="copyright">© <span data-year></span> Adeghe Professional Services.</p></footer>
+<footer class="site-footer shell">
+  <div class="brand footer-brand"><img class="brand-mark" src="logo-mark.svg" alt="" width="40" height="40"><span><strong>Adeghe</strong><small>Professional Services</small></span></div>
+  <p>Client Management · Employee Outsourcing · Software Development</p>
+  <nav class="footer-links" aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  <p class="copyright">© <span data-year></span> Adeghe Professional Services.</p>
+</footer>
 </body>
 </html>
