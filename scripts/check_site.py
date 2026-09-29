@@ -5,17 +5,35 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML = sorted(ROOT.glob("*.html"))
 assert HTML, "No HTML files found"
 
-class Links(HTMLParser):
+class PageParser(HTMLParser):
     def __init__(self):
         super().__init__()
         self.hrefs = []
+        self.title = ""
+        self.in_title = False
+        self.has_description = False
     def handle_starttag(self, tag, attrs):
-        if tag == "a":
-            self.hrefs.extend(v for k, v in attrs if k == "href" and v)
+        attrs = dict(attrs)
+        if tag == "a" and attrs.get("href"):
+            self.hrefs.append(attrs["href"])
+        if tag == "meta" and attrs.get("name") == "description" and attrs.get("content"):
+            self.has_description = True
+        if tag == "title":
+            self.in_title = True
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self.in_title = False
+    def handle_data(self, data):
+        if self.in_title:
+            self.title += data
 
 for page in HTML:
-    parser = Links()
-    parser.feed(page.read_text(encoding="utf-8"))
+    text = page.read_text(encoding="utf-8")
+    parser = PageParser()
+    parser.feed(text)
+    assert parser.title.strip(), f"{page.name}: missing title"
+    if page.name != "404.html":
+        assert parser.has_description, f"{page.name}: missing meta description"
     for href in parser.hrefs:
         if href.startswith(("http://","https://","mailto:","tel:","#")):
             continue
@@ -23,8 +41,12 @@ for page in HTML:
         if target:
             assert (ROOT / target).exists(), f"{page.name}: broken local link {href}"
 
-required = ["index.html","people-operations.html","technology.html","about.html","styles.css","script.js","favicon.svg"]
+public_text = "\n".join(p.read_text(encoding="utf-8").lower() for p in HTML)
+for excluded in ("loan", "lending", "financial assistance"):
+    assert excluded not in public_text, f"Public HTML unexpectedly mentions: {excluded}"
+
+required = ["index.html","people-operations.html","technology.html","about.html","privacy.html","terms.html","styles.css","script.js","favicon.svg","logo-mark.svg"]
 for name in required:
     assert (ROOT / name).exists(), f"Missing {name}"
 
-print(f"Verified {len(HTML)} HTML pages and local links.")
+print(f"Verified {len(HTML)} HTML pages, metadata, scope and local links.")
