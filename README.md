@@ -2,14 +2,30 @@
 
 Official website for **Adeghe Professional Services**.
 
-The website presents the business around two current areas:
+## Public service focus
 
 - Client Management Services
 - Employee Outsourcing Services
-- Software and digital development services, including websites, mobile apps, business systems, automation, backend/cloud integrations, and ongoing software support
+- Software and Digital Development
+  - Business websites
+  - Web applications
+  - Mobile applications
+  - Business systems and dashboards
+  - Automation and integrations
+  - Maintenance, optimisation and ongoing software support
 
-Financial/loan services are intentionally excluded from this website scope.
+Financial/loan services are intentionally excluded from this website.
 
-## Status
+## Structure
 
-Initial website build in progress.
+This first version is deliberately lightweight: semantic HTML, responsive CSS and minimal JavaScript. There is no runtime framework or unnecessary dependency, which keeps deployment simple and performance strong.
+
+## Verify
+
+```bash
+python scripts/check_site.py
+```
+
+## Before public launch
+
+Add the approved business phone/WhatsApp, email, address (if desired), final domain, analytics and deployment configuration. Do not publish placeholder contact information.
