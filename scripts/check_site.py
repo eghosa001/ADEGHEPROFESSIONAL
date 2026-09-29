@@ -51,5 +51,8 @@ for name in required:
 
 for expected in ("adegheprofessionalservices@gmail.com", "+234 703 035 1005", "+234 905 672 6687"):
     assert expected in (ROOT / "contact.html").read_text(encoding="utf-8"), f"Missing contact detail: {expected}"
+about_text = (ROOT / "about.html").read_text(encoding="utf-8")
+for expected in ("Joy Adesuwa Omokaro", "Founder & Principal", "Aighewi Eghosa", "Technology Lead"):
+    assert expected in about_text, f"Missing leadership detail: {expected}"
 assert "https://adegheprofessionalservices.com/" in (ROOT / "sitemap.xml").read_text(encoding="utf-8")
 print(f"Verified {len(HTML)} HTML pages, metadata, scope, contacts and local links.")
